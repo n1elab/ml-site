@@ -171,6 +171,51 @@ a {
     margin-bottom: 2.5rem;
 }
 
+.hero-content {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-number {
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    border-radius: 999px;
+    color: #000;
+    font-weight: bold;
+}
+
+.info-card h3 {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.info-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
 /* サーバーについて */
 .about-text {
     max-width: 700px;
@@ -250,6 +295,58 @@ a {
 
 .card-link:hover {
     text-decoration: underline;
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.staff-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.staff-card .staff-avatar,
+.staff-avatar {
+    display: block;
+    width: 96px !important;
+    height: 96px !important;
+    min-width: 96px !important;
+    min-height: 96px !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    margin: 0 auto 1.5rem !important;
+    background-color: var(--bg-darker);
+    border: 3px solid var(--primary-color);
+}
+
+.staff-badge {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 20px;
+    margin-bottom: 0.7rem;
+    color: #fff;
+}
+
+.badge-owner { background-color: #ef4444; }
+.badge-admin { background-color: #3b82f6; }
+.badge-builder { background-color: #eab308; }
+.badge-mod { background-color: #10b981; }
+
+.staff-bio {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    line-height: 1.75;
 }
 
 /* ==========================================================================
