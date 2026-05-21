@@ -1,0 +1,298 @@
+/* ==========================================================================
+   ベース設定・CSS変数（自動テーマ変更）
+   ========================================================================== */
+
+/* 1. 基本（ライトモード：ユーザーのシステムが標準、またはライトの場合） */
+:root {
+    --bg-color: #f8fafc;
+    --bg-darker: #f1f5f9;
+    --text-color: #1e293b;
+    --text-muted: #64748b;
+    --primary-color: #22c55e; /* マイクラ風グリーン */
+    --primary-hover: #16a34a;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --header-bg: rgba(255, 255, 255, 0.9);
+    --footer-bg: #0f172a;
+    --footer-text: #94a3b8;
+}
+
+/* 2. 自動変更（ユーザーがOSでダークモードを選択している場合） */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --bg-darker: #0a0a0a;
+        --text-color: #f0f0f0;
+        --text-muted: #a0a0a0;
+        --primary-color: #4ade80; 
+        --primary-hover: #22c55e;
+        --card-bg: #1e1e1e;
+        --border-color: #333333;
+        --header-bg: rgba(18, 18, 18, 0.9);
+        --footer-bg: #000000;
+        --footer-text: #a0a0a0;
+    }
+}
+
+/* ==========================================================================
+   リセットCSS & 基本設定
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+/* ==========================================================================
+   共通レイアウト・パーツ
+   ========================================================================== */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+.bg-darker {
+    background-color: var(--bg-darker);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* 汎用ボタン */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #000 !important; /* テーマに関わらず文字は黒 */
+    border: none;
+    padding: 0.8rem 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+/* ==========================================================================
+   ヘッダー（複数ページ共通）
+   ========================================================================== */
+.header {
+    background-color: var(--header-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color) !important;
+}
+
+.nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   メインコンテンツ（TOPページ専用）
+   ========================================================================== */
+
+/* ヒーローセクション */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('../images/mk.webp') center/cover no-repeat;
+    height: 60vh;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    color: #fff; /* 背景が暗いため常時白文字 */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #e2e8f0;
+    margin-bottom: 2.5rem;
+}
+
+/* サーバーについて */
+.about-text {
+    max-width: 700px;
+    margin: 1.5rem auto 0;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* グリッドレイアウト（特徴カード） */
+.section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+/* タイトルの下にアクセント線 */
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    display: flex; /* 高さを揃えてリンクを下に固定するためのFlex */
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* 残りの高さをすべて埋める */
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* テキスト量に差があってもリンクの位置を揃える */
+}
+
+.card-link {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-top: auto; /* 一番下に配置 */
+}
+
+.card-link:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   フッター（複数ページ共通）
+   ========================================================================== */
+.footer {
+    text-align: center;
+    padding: 3rem 0;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer p + p {
+    margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   レスポンシブ設定（スマホ対応）
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 3.5rem 0;
+    }
+}

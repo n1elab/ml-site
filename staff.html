@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>運営スタッフ紹介 | MiLight Server 公式サイト</title>
+    <meta name="description" content="MiLight Serverを支える運営チーム・管理スタッフの紹介ページです。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="icon" type="image/png" href="assets/images/mls-icon.png">
+    
+    <style>
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .staff-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+        .staff-avatar {
+            width: 96px !important;
+            height: 96px !important;
+            min-width: 96px !important;
+            min-height: 96px !important;
+            aspect-ratio: 1 / 1 !important; /* 16/9の指定を完全に打ち消す */
+            object-fit: cover !important;
+            border-radius: 50% !important;
+            margin: 0 auto 1.5rem !important;
+            background-color: var(--bg-darker);
+            border: 3px solid var(--primary-color);
+        }
+        .staff-badge {
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-bottom: 0.7rem;
+            color: #fff;
+        }
+        /* 役職ごの色分け */
+        .badge-owner { background-color: #ef4444; }    /* 赤 */
+        .badge-admin { background-color: #3b82f6; }    /* 青 */
+        .badge-builder { background-color: #eab308; }  /* 黄 */
+        .badge-mod { background-color: #10b981; }      /* 緑 */
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo-link">MiLight Server</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">ホーム</a>
+                <a href="rule.html" class="nav-link">ルール</a>
+                <a href="staff.html" class="nav-link active">スタッフ</a>
+                <a href="http://wiki-mlms.n1e.net" class="nav-link" target="_blank" rel="noopener">Wiki</a>
+                <a href="http://map-mlms.n1e.net" class="nav-link" target="_blank" rel="noopener">Map</a>
+                <a href="http://discord.gg/UyKV4BDxBR" class="nav-link" target="_blank" rel="noopener">Discord</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section container" style="padding-bottom: 0;">
+            <h2 style="text-align: center;">運営スタッフ紹介</h2>
+            <p class="about-text">
+                MiLight Serverの管理・開発・サポートを行っている運営チームのメンバーです。<br>
+                困ったことや質問があれば、Discordのチケット等からお気軽にお声がけください！
+            </p>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                
+                <div class="staff-grid">
+                    
+                    <div class="card staff-card">
+                        <img src="assets/images/mls-icon.png" alt="鯖主のアバター" class="staff-avatar">
+                        <span class="staff-badge badge-owner">鯖主</span>
+                        <h3 style="margin-bottom: 0.5rem;">Neniya</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">
+                            サーバーを持っている人。
+                        </p>
+                    </div>
+
+                    <div class="card staff-card">
+                        <img src="assets/images/staff/dot.webp" alt="管理者1のアバター" class="staff-avatar">
+                        <span class="staff-badge badge-admin">管理者</span>
+                        <h3 style="margin-bottom: 0.5rem;">dot1245</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">
+                            BANなどの処罰や建築などいろいろなことをしてくれる方
+                        </p>
+                    </div>
+
+                    <div class="card staff-card">
+                        <img src="assets/images/staff/kinu.webp" alt="宣伝係1のアバター" class="staff-avatar">
+                        <span class="staff-badge badge-builder">宣伝・モデレーター</span>
+                        <h3 style="margin-bottom: 0.5rem;">きぬ</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">
+                            YouTubeやXの管理を任せている方
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 MiLight Survival Server</p>
+            <p>Not an official Minecraft product. Not approved by or associated with Mojang.</p>
+        </div>
+    </footer>
+
+    <script src="assets/script/script.js" defer></script>
+</body>
+</html>
